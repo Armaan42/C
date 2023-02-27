@@ -1,463 +1,1218 @@
 #include<stdio.h>
-#include<conio.h>
-#include<stdlib.h>
-#include<windows.h>
-#include<string.h>
 
-// defining the global keywords
-#define ENTER 13
-#define TAB 9
-#define BKSP 8
+void a();
+void b();
+void c();
+void d();
+void e();
+void f();
+void g();
+void h();
+void i();
+void j();
+void k();
+void l();
+void m();
+void n();
+void o();
+void p();
+void q();
+void r();
+void s();
+void t();
+void u();
+void v();
+void w();
+void x();
+void y();
+void z();
+void zero();
+void one();
+void two();
+void three();
+void four();
+void five();
+void six();
+void seven();
+void eight();
+void nine();
+void ten();
 
-// Function ProtoType and declearation
-void password(void);
-void menu(void);
-void add(void);
-void search(void);
-void modify(void);
-void list(void);
-void delete(void);
-void end(void);
-// Main Function
-void main(){
-    password();
-}
+int main(){
+    int choice;
+    printf("\n1:Number\n2:Alphabet\n");
+    printf("\n\tEnter the choice :");
+    scanf("%d",&choice);
 
-//password function
-void password()
-{
-    system("cls");
-
-    char pwd[255];
-    char code[255] = {"CLOUD9"};
-    int i = 0;
-    char ch;
-
-    printf("Enter your password. Hit ENTER to confirm. \n");
-    printf("Password:");
-
-    while(1)
-    {
- // get key
-        ch = getch();
-
-        if(ch == ENTER || ch == TAB)
-        {
-            pwd[i] = '\0';
+    int aa;
+    char bb;
+    switch(choice){
+        case 1:
+            //int a;
+            printf("\n\tEnter the number to print its design : ");
+            scanf("%d",&aa);
+            switch(aa){
+                case 0:
+                    zero();
+                    break;
+                case 1:
+                    one();
+                    break;
+                case 2:
+                    two();
+                    break;
+                case 3:
+                    three();
+                    break;
+                case 4:
+                    four();
+                    break;
+                case 5:
+                    five();
+                    break;
+                case 6:
+                    six();
+                    break;
+                case 7:
+                    seven();
+                    break;
+                case 8:
+                    eight();
+                    break;
+                case 9:
+                    nine();
+                    break;
+                default:
+                    printf("error");
+            }
             break;
-        }
-        else if(ch == BKSP)
-        {
-            if(i > 0)
-            {
-                i--;
-                printf("\b \b"); // for backspace 
+        case 2:
+            //int b;
+            printf("\n\tEnter the alphabet to print its design : ");
+            scanf("%s",&bb);
+
+            switch(bb){
+                case 'a':
+                case 'A':
+                    a();
+                    break;
+                case 'b':
+                case 'B':
+                    b();
+                    break;
+                case 'c':
+                case 'C':
+                    c();
+                    break;
+                case 'd':
+                case 'D':
+                    d();
+                case 'e':
+                case 'E':
+                    e();
+                    break;
+                case 'f':
+                case 'F':
+                    f();
+                    break;
+                case 'g':
+                case 'G':
+                    g();
+                    break;
+                case 'h':
+                case 'H':
+                    h();
+                    break;
+                case 'i':
+                case 'I':
+                    i();
+                    break;
+                case 'j':
+                case 'J':
+                    j();
+                    break;
+                case 'k':
+                case 'K':
+                    k();
+                    break;
+                case 'l':
+                case 'L':
+                    l();
+                    break;
+                case 'm':
+                case 'M':
+                    m();
+                    break;
+                case 'n':
+                case 'N':
+                    n();
+                    break;
+                case 'o':
+                case 'O':
+                    o();
+                    break;
+                case 'p':
+                case 'P':
+                    p();
+                    break;
+                case 'q':
+                case 'Q':
+                    q();
+                    break;
+                case 'r':
+                case 'R':
+                    r();
+                    break;
+                case 's':
+                case 'S':
+                    s();
+                    break;
+                case 't':
+                case 'T':
+                    t();
+                    break;
+                case 'u':
+                case 'U':
+                    u();
+                    break;
+                case 'v':
+                case 'V':
+                    v();
+                    break;
+                case 'w':
+                case 'W':
+                    w();
+                    break;
+                case 'x':
+                case 'X':
+                    x();
+                    break;
+                case 'y':
+                case 'Y':
+                    y();
+                    break;
+                case 'z':
+                case 'Z':
+                    z();
+                    break;
+                default:
+                    printf("error");
+            }
+            break;
+            default:
+                printf("main error");
+    }
+    return 0;
+}
+//FOR A - ALPHABET
+void a(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==1 || i==2 || i==5 || i==6 || j==1 || j==2 || j==3 || j==8 || j==9 || j==10){
+                printf("*");
+            }
+            else{
+                printf(" ");
             }
         }
-        else
-        {
-            pwd[i++] = ch;
-            printf("* \b"); // to replace password character with * 
-        }
-    }
-
-    // printf("\n\nPassword:%s\nLength:%d\n\n", pwd, i);  -- prints the user input & lenght of string 
-
-    // verifies the password 
-    if(strcmp(code, pwd) == 0)
-    {
-        printf("\nCorrect Password!");
-        Sleep(2000);
-        menu();
-    }
-    else
-    {
-        printf("\nInvaild Password!");
-        Sleep(2000);
-        password();
-    }
-}    
-
-void menu()
-{
-    //clears the terminal screen
-    system("cls");
-
-label1:
-
-    //clears the input stream - prevents the program from going into infinite loop
-    fflush(stdin);
-
-    printf(">>> Phone Book Main Menu <<< \n");
-    printf("> 1. Add Record\n");
-    printf("> 2. Search Record\n");
-    printf("> 3. Modify Record\n");
-    printf("> 4. List Record\n");
-    printf("> 5. Delete Record\n");
-    printf("> 6. Close the Phone Book \n\n");
-
-    int input;
-    printf("Please enter a number to proceed: ");
-    scanf("%d",&input);
-// switch case
-    switch (input)
-    {
-    case 1:
-        add();
-        break;
-    case 2:
-        search();
-        break;
-
-    case 3:
-        modify();
-        break;
-
-    case 4:
-        list();
-        break;
-
-    case 5:
-        delete();
-        break;
-
-    case 6:
-        end();
-        break;
-
-    default:
-        printf("\nXXX - Invaild input - XXX\n\n");
-        goto label1;
-        break;
+        printf("\n");
     }
 }
 
-void add()
-{
-//goto label (label1) declearation
-label1:
-
-    //clears the input stream - prevents the program from going into infinite loop
-    fflush(stdin);
-    system("cls");
-
-    //opening file in ab+ to  create the file if its not there and  used for writing.
-    FILE *pF = fopen("record.txt", "ab+");
-
-    char name[255];
-    char address[255];
-    char mail[255];
-    double number;
-
-    if(pF != NULL)
-    {
-        printf("Enter Name: ");
-        gets(name);
-
-        printf("Enter Address (City): ");
-        gets(address);
-
-        printf("Enter Mail-ID: ");
-        gets(mail);
-
-        printf("Enter Phone No.: ");
-        scanf("%lf",&number);
-
-        fprintf(pF, "%s %s %s %.0lf \n", name, address, mail, number);
-    }   
-    else
-        printf("Unable to open/locate the file.");
-
-    //closes the file
-    fclose(pF);
-    fflush(stdin);
-
-    //retry screen
-    char input;
-    printf("Do you wanna enter more records [y/N]: ");
-    scanf(" %c",&input);
-
-    if(input == 'y' || input=='Y')
-        goto label1;
-    else if(input=='n' || input=='N')
-    {
-        printf("\nRedirecting to main menu.");
-        Sleep(2000);
-        menu();
+//FOR B - ALPHABET
+void b(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if((i==1 && j>8)){
+                printf(" ");
+            }
+            else if(i==1){
+                printf("*");
+            }
+            else if((i==5 && j>8)){
+                printf(" ");
+            }
+            else if(i==5){
+                printf("*");
+            }
+            else if((i==10 && j>8)){
+                printf(" ");
+            }
+            else if(i==10){
+                printf("*");
+            }
+            else if(j==1){
+                printf("*");
+            }
+            else if((i==2 && j==10)){
+                printf("*");
+            }
+            else if((i==3 && j==10)){
+                printf("*");
+            }
+            else if((i==4 && j==10)){
+                printf("*");
+            }
+            else if((i==6 && j==10)){
+                printf("*");
+            }
+            else if((i==7 && j==10)){
+                printf("*");
+            }
+            else if((i==8 && j==10)){
+                printf("*");
+            }
+            else if((i==9 && j==10)){
+                printf("*");
+            }
+            else if((i>=2 && j==9)){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
     }
-    else
-    {
-        printf("\nInvaild input. Redirecting to main menu.");
-        Sleep(2000);
-        menu();
+}
+//FOR C - ALPHABET
+void c(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==1 || i==2 || i==3 || i==8 || i==9 || i==10 || j==1 || j==2 || j==3 || j==4){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
     }
 }
 
-void search()
-{
-
-label2:
-
-    system("cls");
-    fflush(stdin);
-
-    FILE *pF = fopen("record.txt", "r");
-
-    char name[255];
-    char address[255];
-    char mail[255];
-    double number;
-    
-    int flag=0;
-    int compare;
-
-    char find[255];
-    printf("Enter the name of the person you want to see the detail: ");
-    gets(find);
-
-    while(fscanf(pF, "%s %s %s %lf \n", name, address, mail, &number) != EOF)
-    {
-        //strcmp(variable, variable1) -- if both the strings are equal then it will return 0 otherwise a random number.
-        compare = strcmp(find, name);
-
-        if(compare == 0)
-        {
-            printf("\n>>> Record Found <<< \n\n");
-            
-            printf("> Name: %s \n", name);
-            printf("> Address: %s \n", address);
-            printf("> Mail ID: %s \n", mail);
-            printf("> Phone No.: %.0lf \n", number);
-
-            flag = 1;
+//FOR D - ALPHABET
+void d(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(j==1){
+                printf("*");
+            }
+            else if(i==1 && j==8){
+                printf(" ");
+            }
+            else if(i==1 && j==9){
+                printf(" ");
+            }
+            else if(i==1 && j==10){
+                printf(" ");
+            }
+            else if(i==10 && j==8){
+                printf(" ");
+            }
+            else if(i==10 && j==9){
+                printf(" ");
+            }
+            else if(i==10 && j==10){
+                printf(" ");
+            }
+            else if(i==1 || i==10){
+                printf("*");
+            }
+            else if(i==2 && j==8){
+                printf("*");
+            }
+            else if(i==3 && j==9){
+                printf("*");
+            }
+            else if(i==4 && j==10){
+                printf("*");
+            }
+            else if(i==5 && j==10){
+                printf("*");
+            }
+            else if(i==6 && j==10){
+                printf("*");
+            }
+            else if(i==7 && j==10){
+                printf("*");
+            }
+            else if(i==8 && j==9){
+                printf("*");
+            }
+            else if(i==9 && j==8){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
         }
+        printf("\n");
     }
+}
+//FOR E - ALPHABET
 
-    fclose(pF);
-
-    if(flag == 0)
-        printf("\n>>> Record Not Found <<< \n");
-
-    fflush(stdin);
-
-    char input;
-    printf("\nDo you wanna search for more records [y/N]: ");
-    scanf(" %c",&input);
-
-    if(input == 'y' || input=='Y')
-        goto label2;
-    else if(input=='n' || input=='N')
-    {
-        printf("\nRedirecting to main menu.");
-        Sleep(2000);
-        menu();
-    }
-    else
-    {
-        printf("\nInvaild input. Redirecting to main menu.");
-        Sleep(2000);
-        menu();
+void e(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==1 || i==2 || i==5 || i==6 || i==9 || i==10 || j==1 || j==2 || j==3){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
     }
 }
 
-void modify()
-{
-    system("cls");
-    fflush(stdin);
+//FOR F - ALPHABET
 
-    //opening main record file & a temporary file s
-    FILE *pF = fopen("record.txt", "r");
-    FILE *pTemp = fopen("temporary.txt", "a");
-
-    char name[255], address[255], mail[255];
-    char name1[255], address1[255], mail1[255];
-    double number, number1;
-
-    int compare, flag=0;
-
-    printf("Enter the name of the person you want to see the detail: ");
-    gets(name1);
-
-    fflush(stdin);
-    system("cls");
-
-    while(fscanf(pF, "%s %s %s %lf \n", name, address, mail, &number) != EOF)
-    {
-        compare = strcmp(name1, name);
-        if(compare == 0)
-        {
-            printf("-------------------------------\n");
-            printf(">>> Record Modification <<< \n");
-            printf("-------------------------------\n\n");
-
-            printf("Enter Name: ");
-            gets(name1);
-
-            printf("Enter Address (City): ");
-            gets(address1);
-
-            printf("Enter Mail-ID: ");
-            gets(mail1);
-
-            printf("Enter Phone No.: ");
-            scanf("%lf",&number1);
-
-            fprintf(pTemp, "%s %s %s %.0lf \n", name1, address1, mail1, number1);
-
-            flag = 1;
+void f(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==1 || i==2 || i==5 || i==6 || j==1 || j==2 ||j==3){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
         }
-        else
-            fprintf(pTemp, "%s %s %s %.0lf \n", name, address, mail, number);
+        printf("\n");
     }
-
-        if(flag == 0)
-        {
-            printf("-------------------------------\n");
-            printf(">>> Record Not Found <<< \n");
-            printf("-------------------------------\n\n");
-        }
-    
-    fclose(pF);
-    fclose(pTemp);
-
-    //deletes everything from main record file
-    pF = fopen("record.txt", "w");
-    fclose(pF);
-
-    pF = fopen("record.txt", "a");
-    pTemp = fopen("temporary.txt", "r");
-
-    //copies records from temporary file to main record file
-    while (fscanf(pTemp, "%s %s %s %lf \n", name, address, mail, &number) != EOF)
-    {
-        fprintf(pF, "%s %s %s %.0lf \n", name, address, mail, number);
-    }
-
-    fclose(pF);
-    fclose(pTemp);
-
-    //deletes everything from temporary file
-    pTemp = fopen("temporary.txt", "w");
-    fclose(pTemp);
-
-    printf("\n\nProcessing your changes....");
-    Sleep(3000);
-    menu();
-
 }
 
-void list()
-{
-    system("cls");
-    FILE *pF = fopen("record.txt", "r");
-
-    char name[255];
-    char address[255];
-    char mail[255];
-    double number;
-
-    //lists all the records from main record files
-    while(fscanf(pF, "%s %s %s %lf \n", name, address, mail, &number) != EOF)
-    {
-        printf("-------------------------------\n");
-        printf("> Name: %s \n", name);
-        printf("> Address: %s \n", address);
-        printf("> Mail-ID: %s \n", mail);
-        printf("> Phone No.: %.0lf \n", number);
-        printf("-------------------------------\n\n\n");
+//FOR G - ALPHABET
+void g(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==1 || j==1){
+                printf("*");
+            }
+            else if(j==10 && i>10/2){
+                printf("*");
+            }
+            else if(j==6 && i>10/2){
+                printf("*");
+            }
+            else if(i==6 && i<10/2){
+                printf("*");
+            }
+            else if((i==6 && j>=7)){
+                printf("*");
+            }
+            else if((i==10 && j<7)){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
     }
-
-    fclose(pF);
-
-    printf("Press any key to get back to main menu.\n");
-    getch();
-    menu();
+}
+//FOR H - ALPHABET
+void h(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==5 || i==6 || j==1 || j==2 || j==3 || j==8 || j==9 || j==10){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
 }
 
-void delete()
-{
-    system("cls");
-
-    FILE *pF = fopen("record.txt", "r");
-    FILE *pTemp = fopen("temporary.txt", "a");
-
-    char name[255], name1[255], address[255], mail[255];
-    double number;
-    
-    int compare, flag=0;
-
-    fflush(stdin);
-    system("cls");
-    
-    printf("Enter the name of the person you want to see the detail: ");
-    gets(name1);
-
-    fflush(stdin);
-    system("cls");
-
-    while(fscanf(pF, "%s %s %s %lf \n", name, address, mail, &number) != EOF)
-    {
-        compare = strcmp(name1, name);
-        if(compare == 0)
-        {
-            //this time the record won't be copied to temporary file and this record will be skipped.
-            printf("-------------------------------\n");
-            printf(">>> Record Deleted Successfully <<< \n");
-            printf("-------------------------------\n\n");
-            flag = 1;
+//FOR I - ALPHABET  
+void i(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==1 || i==2 || i==9 || i==10 || j==4 || j==5 || j==6 || j==7){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
         }
-        else
-        {
-            //it will copy the records from main file to temporary file one by one.
-            fprintf(pTemp, "%s %s %s %.0lf \n", name, address, mail, number);
-        }
+        printf("\n");
     }
-
-    if(flag == 0)
-        {
-            printf("-------------------------------\n");
-            printf(">>> Record Not Found <<< \n");
-            printf("-------------------------------\n\n");
-        }
-
-    fclose(pF);
-    fclose(pTemp);
-
-    //deletes everything from main record file
-    pF = fopen("record.txt", "w");
-    fclose(pF);
-
-    pF = fopen("record.txt", "a");
-    pTemp = fopen("temporary.txt", "r");
-
-    while (fscanf(pTemp, "%s %s %s %lf \n", name, address, mail, &number) != EOF)
-    {
-        fprintf(pF, "%s %s %s %.0lf \n", name, address, mail, number);
-    }
-
-    fclose(pF);
-    fclose(pTemp);
-
-    //deletes everything from temporary file
-    pTemp = fopen("temporary.txt", "w");
-    fclose(pTemp);
-
-    printf("\n\nProcessing your changes....");
-    Sleep(3000);
-    menu();
-
 }
 
-void end()
-{
-    system("cls");
+//FOR J - ALPHABET
+void j(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==1 || j==6){
+                printf("*");
+            }
+            else if(j==1 && i>10/2){
+                printf("*");
+            }
+            else if((i==10 && j<6)){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
 
-    printf(">>> Phone Book in C <<< \n\n");
-    printf("> Creator: ARYAN ANGRAL \n\n");
-    printf("> Github: https://github.com/AryanAngral07/ARYAN-ANGRAL \n");
-    printf("Press any key to exit. \n");
+//FOR K - ALPHABET
+void k(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(j==1 || j==2){
+                printf("*");
+            }
+            else if((j==2 && i==5)){
+                printf("*");
+            }
+            else if((j==2 && i==6)){
+                printf("*");
+            }
+            else if((j==3 && i==4)){
+                printf("*");
+            }
+            else if((j==3 && i==7)){
+                printf("*");
+            }
+            else if((j==4 && i==3)){
+                printf("*");
+            }
+            else if((j==4 && i==8)){
+                printf("*");
+            }
+            else if((j==5 && i==3)){
+                printf("*");
+            }
+            else if((j==5 && i==8)){
+                printf("*");
+            }
+            else if((j==6 && i==2)){
+                printf("*");
+            }
+            else if((j==7 && i==2)){
+                printf("*");
+            }
+            else if((j==8 && i==1)){
+                printf("*");
+            }
+            else if((j==9 && i==1)){
+                printf("*");
+            }
+            else if((j==6 && i==9)){
+                printf("*");
+            }
+            else if((j==7 && i==9)){
+                printf("*");
+            }
+            else if((j==8 && i==10)){
+                printf("*");
+            }
+            else if((j==9 && i==10)){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+//FOR L - ALPHABET  
+void l(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==9 || i==10 || j==1 || j==2 || j==3){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
 
-    getch();
-    exit(0);
+//FOR M - ALPHABET
+void m(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(j==1 || j==10){
+                printf("*");
+            }
+            else if((i==2 && j==2)){
+                printf("*");
+            }
+            else if((i==3 && j==3)){
+                printf("*");
+            }
+            else if((i==4 && j==4)){
+                printf("*");
+            }
+            else if((i==5 && j==5)){
+                printf("*");
+            }
+            else if((i==4 && j==6)){
+                printf("*");
+            }
+            else if((i==3 && j==7)){
+                printf("*");
+            }
+            else if((i==2 && j==8)){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+//FOR N - ALPHABET
+void n(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(j==1 || j==10){
+                printf("*");
+            }
+            else if(i==2 && j==2){
+                printf("*");
+            }
+            else if(i==3 && j==3){
+                printf("*");
+            }
+            else if(i==4 && j==4){
+                printf("*");
+            }
+            else if(i==5 && j==5){
+                printf("*");
+            }
+            else if(i==6 && j==6){
+                printf("*");
+            }
+            else if(i==7 && j==7){
+                printf("*");
+            }
+            else if(i==8 && j==8){
+                printf("*");
+            }
+            else if(i==9 && j==9){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+//FOR O - ALPHABET
+void o(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==1 || i==2 || i==9 || i==10 || j==1 || j==2 || j==3 || j==8 || j==9 || j==10){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
 
+//FOR P -ALPHABET
+void p(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(j==1 || i==1 || i==5){
+                printf("*");
+            }
+            else if((j==10 && i<10/2)){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+//FOR Q - ALPHABET
+void q(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==1 || i==7){
+                printf("*");
+            }
+            else if(j==1 && i<=7){
+                printf("*");
+            }
+            else if(j==10 && i<=7){
+                printf("*");
+            }
+            else if((i==6 && j==6)){
+                printf("*");
+            }
+            else if((i==8 && j==8)){
+                printf("*");
+            }
+            else if((i==9 && j==9)){
+                printf("*");
+            }
+            else if((i==10 && j==10)){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+//FOR R - ALPHABET
+void r(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==1 || j==1 || i==5){
+                printf("*");
+            }
+            else if((j==10 && i<10/2)){
+                printf("*");
+            }
+            else if((i==6 && j==2)){
+                printf("*");
+            }
+            else if(i==7 && j==3){
+                printf("*");
+            }
+            else if(i==8 && j==5){
+                printf("*");
+            }
+            else if(i==9 && j==7){
+                printf("*");
+            }
+            else if(i==10 && j==10){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+//FOR S - ALPHABET  
+void s(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==1 || i==5 || i==10){
+                printf("*");
+            }
+            else if(j==1 && i<10/2){
+                printf("*");
+            }
+            else if(j==10 && i>10/2){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+
+//FOR T - ALPHABET
+void t(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==1 || i==2  || j==5 || j==7){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+//FOR U - ALPHABET
+void u(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==9 || i==10 || j==1 || j==2 || j==3 || j==8 || j==9 || j==10){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+//FOR V - ALPHABET
+void v(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if((i==10 && j>5)){
+                printf(" ");
+            }
+            else if((i==10 && j<5)){
+                printf(" ");
+            }
+            else if(i==10){
+                printf("*");
+            }
+            else if((j==1 && i>3)){
+                printf(" ");
+            }
+            else if(j==1){
+                printf("*");
+            }
+            else if((j==10 && i>3)){
+                printf(" ");
+            }
+            else if(j==10){
+                printf("*");
+            }
+            else if((i==4 && j==2)){
+                printf("*");
+            }
+            else if((i==5 && j==2)){
+                printf("*");
+            }
+            else if((i==6 && j==2)){
+                printf("*");
+            }
+            else if((i==7 && j==2)){
+                printf("*");
+            }
+            else if((i==8 && j==3)){
+                printf("*");
+            }
+            else if((i==9 && j==4)){
+                printf("*");
+            }
+            else if((i==9 && j==6)){
+                printf("*");
+            }
+            else if((i==8 && j==7)){
+                printf("*");
+            }
+            else if((i==7 && j==8)){
+                printf("*");
+            }
+            else if((i==6 && j==9)){
+                printf("*");
+            }
+            else if((i==5 && j==9)){
+                printf("*");
+            }
+            else if((i==4 && j==9)){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+//FOR W - ALPHABET
+void w(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(j==1 || j==10){
+                printf("*");
+            }
+            else if(i==9 && j==2){
+                printf("*");
+            }
+            else if(i==8 && j==3){
+                printf("*");
+            }
+            else if(i==7 && j==4){
+                printf("*");
+            }
+            else if(i==6 && j==5){
+                printf("*");
+            }
+            else if(i==7 && j==6){
+                printf("*");
+            }
+            else if(i==8 && j==7){
+                printf("*");
+            }
+            else if(i==9 && j==8){
+                printf("*");
+            }
+            else if(i==10 && j==9){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+//FOR X - ALPHABET
+void x(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if((i==1 && j==1)){
+                printf("*");
+            }
+            else if((i==2 && j==2)){
+                printf("*");
+            }
+            else if((i==3 && j==3)){
+                printf("*");
+            }
+            else if((i==4 && j==4)){
+                printf("*");
+            }
+            else if((i==5 && j==5)){
+                printf("*");
+            }
+            else if((i==6 && j==5)){
+                printf("*");
+            }
+            else if((i==7 && j==5)){
+                printf("*");
+            }
+            else if((i==8 && j==4)){
+                printf("*");
+            }
+            else if((i==9 && j==3)){
+                printf("*");
+            }
+            else if((i==10 && j==2)){
+                printf("*");
+            }
+            else if((i==1 && j==10)){
+                printf("*");
+            }
+            else if((i==2 && j==9)){
+                printf("*");
+            }
+            else if((i==3 && j==8)){
+                printf("*");
+            }
+            else if((i==4 && j==7)){
+                printf("*");
+            }
+            else if((i==5 && j==6)){
+                printf("*");
+            }
+            else if((i==6 && j==6)){
+                printf("*");
+            }
+            else if((i==7 && j==6)){
+                printf("*");
+            }
+            else if((i==8 && j==7)){
+                printf("*");
+            }
+            else if((i==9 && j==8)){
+                printf("*");
+            }
+            else if((i==10 && j==9)){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+//FOR Y - ALPHABET
+void y(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==1 && j==1){
+                printf("*");
+            }
+            else if(i==2 && j==2){
+                printf("*");
+            }
+            else if(i==3 && j==3){
+                printf("*");
+            }
+            else if(i==4 && j==4){
+                printf("*");
+            }
+            else if(i==5 && j==5){
+                printf("*");
+            }
+            else if(j==5 && i>10/2){
+                printf("*");
+            }
+            else if(i==4 && j==6){
+                printf("*");
+            }
+            else if(i==3 && j==7){
+                printf("*");
+            }
+            else if(i==2 && j==8){
+                printf("*");
+            }
+            else if(i==1 && j==9){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+//FOR Z - ALPHABET
+void z(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==1 || i==10){
+                printf("*");
+            }
+            else if(i==2 && j==9){
+                printf("*");
+            }
+            else if(i==3 && j==8){
+                printf("*");
+            }
+            else if(i==4 && j==7){
+                printf("*");
+            }
+            else if(i==5 && j==6){
+                printf("*");
+            }
+            else if(i==6 && j==5){
+                printf("*");
+            }
+            else if(i==7 && j==4){
+                printf("*");
+            }
+            else if(i==8 && j==3){
+                printf("*");
+            }
+            else if(i==9 && j==2){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+
+//FOR ONE - NUMBER
+void one(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==10 || j==7){
+                printf("*");
+            }
+            else if( (i==2 && j<3)){
+                printf(" ");
+            }
+            else if( (i==2 && j<8)){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+//FOR TWO - NUMBER
+void two(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==1 || i==5 || i==10){
+                printf("*");
+            }
+            else if( j==10 && i<10/2){
+                printf("*");
+            }
+            else if(j==1 && i>10/2){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+//FOR THREE - NUMBER
+void three(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==1 || i==5 || i==10 || j==10){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+//FOR FOUR - NUMBER
+void four(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==5 || j==10){
+                printf("*");
+            }
+            else if( j==1 && i<10/2){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+//FOR FIVE - NUMBER
+void five(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==5 || j==10){
+                printf("*");
+            }
+            else if((j==1 && i<10/2)){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+//FOR SIX - NUMBER
+void six(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==1 || i==5 || i==10 || j==1){
+                printf("*");
+            }
+            else if((j==10 && i>10/2)){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+//FOR SEVEN - NUMBER
+void seven(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==1){
+                printf("*");
+            }
+            else if(j==9 && i==2){
+                printf("*");
+            }
+            else if(j==8 && i==3){
+                printf("*");
+            }
+            else if(j==7 && i==4){
+                printf("*");
+            }
+            else if(j==6 && i==5){
+                printf("*");
+            }
+            else if(j==5 && i==6){
+                printf("*");
+            }
+            else if(j==4 && i==7){
+                printf("*");
+            }
+            else if(j==3 && i==8){
+                printf("*");
+            }
+            else if(j==2 && i==9){
+                printf("*");
+            }
+            else if(j==1 && i==10){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+//FOR EIGHT - NUMBER
+void eight(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==1 || i==5 || i==10 || j==1 || j==10){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+//FOR NINE - NUMBER
+void nine(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==1 || i==5 || j==10){
+                printf("*");
+            }
+            else if(j==1 && i<10/2){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
+}
+
+//FOR 0 - NUMBER 
+void zero(){
+    for(int i=1;i<=10;i++){
+        for(int j=1;j<=10;j++){
+            if(i==1 || j==10 || i==10 || j==1){
+                printf("*");
+            }
+            else{
+                printf(" ");
+            }
+        }
+        printf("\n");
+    }
 }
